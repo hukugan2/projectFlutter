@@ -1,3 +1,4 @@
+import 'package:contatos/home_page.dart';
 import 'package:flutter/material.dart';
 
 main() => runApp(const MyApp());
@@ -36,6 +37,32 @@ class MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: Image.asset('assets/images/user.png'),
+                accountName: Text('Mateus Moitinho'),
+                accountEmail: Text('mateusmoitinho23@gmail.com')),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Inicio'),
+              subtitle: Text('Tela de inicio'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Logout'),
+              subtitle: Text('Finalizar sessão'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: const Text('Lista de Contatos'),
       ),

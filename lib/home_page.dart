@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'app_controller.dart';
-import 'package:contatos/contacts_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,7 +15,32 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(),
+        drawer: Drawer(
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                  currentAccountPicture: Image.asset('assets/images/user.png'),
+                  accountName: Text('Mateus Moitinho'),
+                  accountEmail: Text('mateusmoitinho23@gmail.com')),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Inicio'),
+                subtitle: Text('Tela de inicio'),
+                onTap: () {
+                  print('home');
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.logout),
+                title: Text('Logout'),
+                subtitle: Text('Finalizar sessão'),
+                onTap: () {
+                  Navigator.of(context).pushReplacementNamed('/');
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
           title: Text('Home Page'),
           actions: [
@@ -35,6 +59,7 @@ class HomePageState extends State<HomePage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
           onPressed: () {
             Navigator.of(context).pushReplacementNamed('/contacts_page');
           },
