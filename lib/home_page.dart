@@ -61,7 +61,7 @@ class HomePageState extends State<HomePage> {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            Navigator.of(context).pushReplacementNamed('/contacts_page');
+            Navigator.of(context).pushNamed('/contacts_page');
           },
         ));
   }

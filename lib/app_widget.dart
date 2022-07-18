@@ -24,7 +24,7 @@ class AppWidget extends StatelessWidget {
           routes: {
             '/': (context) => LoginPage(),
             '/home': (context) => HomePage(),
-            '/contacts_page': (context) => MyApp(),
+            '/contacts_page': (context) => ContactsPage(),
           },
         );
       },

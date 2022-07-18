@@ -1,23 +1,20 @@
+import 'dart:developer';
+
 import 'package:contatos/home_page.dart';
 import 'package:flutter/material.dart';
 
-main() => runApp(const MyApp());
-
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class ContactsPage extends StatefulWidget {
+  const ContactsPage({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<ContactsPage> createState() => _ContactsPageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _ContactsPageState extends State<ContactsPage> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return MaterialApp(
-      title: 'Lista de Contatos',
-      home: const MyHome(),
-    );
+    return MyHome();
   }
 }
 
@@ -49,7 +46,8 @@ class MyHomeState extends State<MyHome> {
               title: Text('Inicio'),
               subtitle: Text('Tela de inicio'),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed('/');
+                log('Home');
+                Navigator.of(context).pushNamed('/home');
               },
             ),
             ListTile(
