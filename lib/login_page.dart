@@ -24,8 +24,8 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 200,
-                height: 200,
+                width: 250,
+                height: 220,
                 child: Image.asset('assets/images/logo.png'),
               ),
               Container(height: 20),
@@ -41,37 +41,45 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
-                          labelText: 'Email',
-                          border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 176, 241, 192),
+                          icon: Icon(Icons.email),
+                          hintText: 'Email',
+                          border: InputBorder.none,
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 12),
                       TextField(
                         onChanged: (text) {
                           password = text;
                         },
                         obscureText: true,
                         decoration: const InputDecoration(
-                          labelText: 'Password',
-                          border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 176, 241, 192),
+                          icon: Icon(Icons.lock),
+                          hintText: 'Password',
+                          border: InputBorder.none,
                         ),
                       ),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 20),
                       RaisedButton(
                         textColor: Colors.white,
-                        color: Colors.red,
+                        color: Color.fromARGB(255, 17, 190, 1),
                         onPressed: () {
                           if (email == 'mateusmoitinho23@gmail.com' &&
                               password == '123') {
                             Navigator.of(context).pushReplacementNamed('/home');
                           } else {
-                            ('login invalido');
+                            print('login invalido');
                           }
                         },
-                        child: Container(
+                        child: const SizedBox(
+                            height: 35,
                             width: double.infinity,
-                            child: const Text('Entrar',
-                                textAlign: TextAlign.center)),
+                            child: Center(
+                                child: Text('Entrar',
+                                    textAlign: TextAlign.center))),
                       ),
                     ],
                   ),
@@ -91,9 +99,8 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         SizedBox(
             height: MediaQuery.of(context).size.height,
-            child:
-                Image.asset('assets/images/background.jpg', fit: BoxFit.cover)),
-        Container(color: Colors.black.withOpacity(0.3)),
+            child: Container(
+                color: Color.fromARGB(255, 38, 230, 102).withOpacity(0.8))),
         _body(),
       ],
     ));

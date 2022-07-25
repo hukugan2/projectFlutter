@@ -31,6 +31,7 @@ class MyHomeState extends State<MyHome> {
   final TextEditingController taskController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final List<String> _tasks = [];
+  final Controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

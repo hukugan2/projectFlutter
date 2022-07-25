@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'app_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,10 +11,36 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   bool isDarkTheme = false;
-
+  var _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: SalomonBottomBar(
+          currentIndex: _currentIndex,
+          onTap: (i) => setState(() => _currentIndex = i),
+          items: [
+            /// Home
+            SalomonBottomBarItem(
+              icon: Icon(Icons.home),
+              title: Text("Home"),
+              selectedColor: Colors.purple,
+            ),
+
+            /// Search
+            SalomonBottomBarItem(
+              icon: Icon(Icons.search),
+              title: Text("Search"),
+              selectedColor: Colors.orange,
+            ),
+
+            /// Profile
+            SalomonBottomBarItem(
+              icon: Icon(Icons.person),
+              title: Text("Profile"),
+              selectedColor: Colors.teal,
+            ),
+          ],
+        ),
         drawer: Drawer(
           child: Column(
             children: [
@@ -54,6 +80,15 @@ class HomePageState extends State<HomePage> {
             children: [
               Container(
                 height: 10,
+              ),
+              Stack(
+                children: [
+                  SizedBox(
+                      height: MediaQuery.of(context).size.height,
+                      child: Container(
+                          color: Color.fromARGB(255, 38, 230, 102)
+                              .withOpacity(0.8))),
+                ],
               ),
             ],
           ),
